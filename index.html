@@ -18,12 +18,11 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0}
 .volcanes{display:block;width:100%;height:auto}
 .volcanes path{fill:var(--anil)}
 .volcanes path:last-child{fill:var(--papel)}
-.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:14rem 1fr;gap:3.5rem}
-nav{position:sticky;top:0;align-self:start;padding:2rem 0}
-nav ol{list-style:none;margin:0;padding:0;border-left:3px solid var(--ceniza)}
-nav a{display:block;padding:.45rem 0 .45rem 1rem;text-decoration:none;color:#4a5068;font-weight:600;font-size:.96rem;margin-left:-3px;border-left:3px solid transparent}
-nav a:hover,nav a.on{color:var(--anil);border-left-color:var(--maiz)}
-main{padding:2rem 0 5rem;max-width:42rem}
+
+/* CORRECCIÓN DE ANCHO */
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
+main{padding:2rem 0 5rem;width:100%;max-width:100%}
+
 section{padding-top:2.5rem;margin-bottom:3.5rem;border-top:3px solid var(--anil)}
 h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--anil);font-weight:800}
 h3{font-size:1.3rem;margin:2rem 0 .5rem;color:var(--barro);font-weight:600}
@@ -39,13 +38,6 @@ p{margin:.7rem 0}
 .simbolos li:hover{border-left-color:var(--maiz)}
 .simbolos strong{color:var(--anil)}
 footer{background:var(--osc);color:#c9cfee;text-align:center;padding:2rem 1rem;font-size:.95rem}
-@media(max-width:820px){
- .wrap{grid-template-columns:1fr;gap:0}
- nav{position:static;padding:1.5rem 0 0}
- nav ol{display:flex;flex-wrap:wrap;gap:.3rem;border:0}
- nav a{border:0;background:var(--ceniza);padding:.4rem .8rem;border-radius:2rem;margin:0;font-size:.9rem}
- nav a.on,nav a:hover{background:var(--maiz);color:var(--osc)}
-}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -62,18 +54,6 @@ footer{background:var(--osc);color:#c9cfee;text-align:center;padding:2rem 1rem;f
 </header>
 
 <div class="wrap">
-  <nav>
-    <ol>
-      <li><a href="#introduccion">Introducción</a></li>
-      <li><a href="#originarios">Pueblos originarios</a></li>
-      <li><a href="#colonia">Época colonial</a></li>
-      <li><a href="#independencia">Independencia</a></li>
-      <li><a href="#formacion">Formación</a></li>
-      <li><a href="#siglo-xx">Siglo XX</a></li>
-      <li><a href="#actual">Actualidad</a></li>
-    </ol>
-  </nav>
-
   <main>
     <section id="introduccion">
       <h2>Introducción</h2>
@@ -110,7 +90,7 @@ footer{background:var(--osc);color:#c9cfee;text-align:center;padding:2rem 1rem;f
       <h3><span class="fecha">1525–1528</span>Proceso de conquista</h3>
       <p>Tras intensos enfrentamientos militares y la fundación de la Villa de San Salvador en 1525 (consolidada definitivamente en 1528), la corona española logró imponer su dominio político y administrativo sobre las poblaciones nativas.</p>
       <h3>Organización colonial</h3>
-      <p>El territorio quedó incorporado a la Capitanía General de Guatemala. La economía colonial se basó inicialmente en la extracción del cacao y, más adelante, en la producción a gran escala del añil (<em>indigo</em>), un tinte natural altamente codiciado en Europa. La mano de obra indígena fue organizada bajo esquemas de encomiendas y reducciones.</p>
+      <p>El territorio quedó incorporado a la Capitanía General de Guatemala. La economía colonial se basó inicialmente en la extracción del cacao y, más adelante, en la producción a gran escala del añil (<em>indigo</em>), un tinte natural highly codiciado en Europa. La mano de obra indígena fue organizada bajo esquemas de encomiendas y reducciones.</p>
     </section>
 
     <section id="independencia">
@@ -158,12 +138,8 @@ footer{background:var(--osc);color:#c9cfee;text-align:center;padding:2rem 1rem;f
     </section>
   </main>
 </div>
+
 <footer>Historia de El Salvador: desde sus raíces hasta la actualidad</footer>
 
-<script>
-const enlaces=document.querySelectorAll('nav a');
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){enlaces.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-30% 0px -60% 0px'});
-document.querySelectorAll('main section').forEach(s=>obs.observe(s));
-</script>
 </body>
 </html>
